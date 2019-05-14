@@ -856,13 +856,13 @@ class Solution {
         if (y == n) {
             this.output(queen, res, n);
         } else {
-            //select
-            if (this.isValid(queen, y, x)) { //(y,x) is available
+            //select and move to the next line
+            if (this.isValid(queen, y, x)) { //check if (y,x) is valid 
                 queen[y][x] = true;
                 this.helper(queen, y + 1, 0, res, n);
                 queen[y][x] = false;
             }
-            //not select
+            //not select (i.e., skip)
             if (x < n - 1) {
                 this.helper(queen, y, x + 1, res, n);
             }
