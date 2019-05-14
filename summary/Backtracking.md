@@ -813,6 +813,120 @@ class Solution {
   b
 </code></pre>
 
+### [51. N-Queens](https://leetcode.com/problems/n-queens/)
+The n-queens puzzle is the problem of placing n queens on an n×n chessboard such that no two queens attack each other.
+Given an integer n, return all distinct solutions to the n-queens puzzle.
+
+Each solution contains a distinct board configuration of the n-queens' placement, where 'Q' and '.' both indicate a queen and an empty space respectively.
+
+>Example 1:
+<code><pre>
+Input: 4
+Output: [
+ [".Q..",  // Solution 1
+  "...Q",
+  "Q...",
+  "..Q."],
+ ["..Q.",  // Solution 2
+  "Q...",
+  "...Q",
+  ".Q.."]
+]
+Explanation: There exist two distinct solutions to the 4-queens puzzle as shown above.
+</code></pre>
+
+>算法：通过递归回溯，每次选或不选
++ 时间复杂度O(N!)
++ 空间复杂度O(N!)
+
+```java
+class Solution {
+
+    //3ms, 83.19%
+    public List<List<String>> solveNQueens(int n) {
+        ArrayList<List<String>> res = new ArrayList<>();
+        if (n > 0) {
+            boolean[][] queen = new boolean[n][n];
+            this.helper(queen, 0, 0, res, n);
+        }
+        return res;
+    }
+
+    private void helper(boolean[][] queen, int y, int x, ArrayList<List<String>> res, int n) {
+        if (y == n) {
+            this.output(queen, res, n);
+        } else {
+            //select
+            if (this.isValid(queen, y, x)) { //(y,x) is available
+                queen[y][x] = true;
+                this.helper(queen, y + 1, 0, res, n);
+                queen[y][x] = false;
+            }
+            //not select
+            if (x < n - 1) {
+                this.helper(queen, y, x + 1, res, n);
+            }
+        }
+    }
+
+    private void output(boolean[][] queen, ArrayList<List<String>> res, int n) {
+        ArrayList<String> solution = new ArrayList<>();
+        for (int j = 0; j < n; j++) {
+            StringBuilder line = new StringBuilder();
+            for (int i = 0; i < n; i++) {
+                if (queen[j][i]) {
+                    line.append("Q");
+                } else
+                    line.append(".");
+            }
+            solution.add(line.toString());
+        }
+        res.add(solution);
+    }
+
+    private boolean isValid(boolean[][] queen, int y, int x) {
+        if (!checkLine(queen, y, x)) {
+            return false;
+        }
+        if ((!checkSlash(queen, y, x, true))
+                || (!checkSlash(queen, y, x, false))) {
+            return false;
+        }
+        return true;
+    }
+
+    private boolean checkLine(boolean[][] queen, int y, int x) {
+        for (int i = 0; i < y; i++) {
+            if (queen[i][x]) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private boolean checkSlash(boolean[][] queen, int y, int x, boolean isLeft) {
+        while ((x >= 0) && (x < queen.length) && (y >= 0)) {
+            if (queen[y][x]) {
+                return false;
+            }
+            y--;
+            if (isLeft) {
+                x--;
+            } else {
+                x++;
+            }
+        }
+        return true;
+    }
+}
+```
+>回溯树(pattern):
+<pre><code>
+　　　　　                 root
+　　　    select(0,0)                    skip(0,0)
+select(1,0)   skip(1,0)       select(0,1)     skip(0,1)
+</code></pre>
+
 
 
 ## Template
@@ -840,10 +954,7 @@ class Solution {
           a    a   a
 </code></pre>
 
-<!--
-TODO:
-1. 8Queen
--->
+
 
 
 
