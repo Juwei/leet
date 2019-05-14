@@ -50,7 +50,7 @@ Backtracking模板如上所示，关键的状态量有：
 算法设计的关键：根据选项池，设计递归排列方法得到回溯树，然后设计状态量以支持回溯树的遍历和剪枝。
 
 ## Problems
-### [46.Permutations](https://leetcode.com/problems/permutations/)
+### [46. Permutations](https://leetcode.com/problems/permutations/)
 Given a collection of distinct integers, return all possible permutations.
 >Example 1:
 <code><pre>
@@ -146,7 +146,7 @@ public class Solution{
     }
 }
 ```
-### [78.Subset](https://leetcode.com/problems/subsets/)
+### [78. Subset](https://leetcode.com/problems/subsets/)
 Given a set of distinct integers, nums, return all possible subsets (the power set).
 Note: The solution set must not contain duplicate subsets.
 
@@ -209,7 +209,7 @@ public class Solution{
 ３                    selectNum=3
 </code></pre>
 
-### [39.Combination Sum](https://leetcode.com/problems/combination-sum/)
+### [39. Combination Sum](https://leetcode.com/problems/combination-sum/)
 Given a set of candidate numbers (candidates) (without duplicates) and a target number (target), find all unique combinations in candidates where the candidate numbers sums to target.
 The same repeated number may be chosen from candidates unlimited number of times.
 
@@ -281,7 +281,7 @@ public class Solution{
 </code></pre>
 
 
-### [17.Phone Number Combination](https://leetcode.com/problems/letter-combinations-of-a-phone-number/)
+### [17. Phone Number Combination](https://leetcode.com/problems/letter-combinations-of-a-phone-number/)
 Given a string containing digits from 2-9 inclusive, return all possible letter combinations that the number could represent.
 
 A mapping of digit to letters (just like on the telephone buttons) is given below. Note that 1 does not map to any letters.
@@ -340,7 +340,7 @@ public class Solution{
   f g  f g f g f g f g f g
 </code></pre>
 
-### [22.Generate Parenthesis](https://leetcode.com/problems/generate-parentheses/)
+### [22. Generate Parenthesis](https://leetcode.com/problems/generate-parentheses/)
 Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.
 
 For example, given n = 3, a solution set is: 
@@ -408,7 +408,7 @@ public class Solution{
         ()()   (())
 </code></pre>
 
-### [79.Word Search](https://leetcode.com/problems/word-search/)
+### [79. Word Search](https://leetcode.com/problems/word-search/)
 Given a 2D board and a word, find if the word exists in the grid.
 
 The word can be constructed from letters of sequentially adjacent cell, where "adjacent" cells are those horizontally or vertically neighboring. The same letter cell may not be used more than once.
@@ -503,7 +503,7 @@ public class Solution{
        C E   E A
 </code></pre>
 
-### [10.Regular Expression Matching](https://leetcode.com/problems/regular-expression-matching/)
+### [10. Regular Expression Matching](https://leetcode.com/problems/regular-expression-matching/)
 Given an input string (s) and a pattern (p), implement regular expression matching with support for `.` and `*`.
 1. `.` Matches any single character.
 2. `*` Matches zero or more of the preceding element.
@@ -678,7 +678,7 @@ public class Solution {
     }
 }
 ```
-### [301.Remove Invalid Parentheses](https://leetcode.com/problems/remove-invalid-parentheses/)
+### [301. Remove Invalid Parentheses](https://leetcode.com/problems/remove-invalid-parentheses/)
 Remove the minimum number of invalid parentheses in order to make the input string valid. Return all possible results.
 
 Note: The input string may contain letters other than the parentheses ( and ).
@@ -760,7 +760,7 @@ class Solution {
 }
 ```
 
-### [131.Palindrome Partitioning](https://leetcode.com/problems/palindrome-partitioning/)
+### [131. Palindrome Partitioning](https://leetcode.com/problems/palindrome-partitioning/)
 Given a string s, partition s such that every substring of the partition is a palindrome.
 
 Return all possible palindrome partitioning of s.
@@ -824,7 +824,7 @@ class Solution {
   b
 </code></pre>
 
-### [51.N-Queens](https://leetcode.com/problems/n-queens/)
+### [51. N-Queens](https://leetcode.com/problems/n-queens/)
 The n-queens puzzle is the problem of placing n queens on an n×n chessboard such that no two queens attack each other.
 Given an integer n, return all distinct solutions to the n-queens puzzle.
 
