@@ -121,6 +121,66 @@ class Solution {
     }
 }
 ```
+#### []()
+
+
+>Example 1:
+<code><pre>
+
+</code></pre>
+
+>算法：
+1. 每个节点后面复制一个｀n'｀；
+2. 给｀n'｀加上random（第一步的目的就是为了这一步可以用｀current.next.random = current.random.next｀来复制random）；
+3. 把n, n'拆开还原；
+
++ 时间复杂度O(N)
++ 空间复杂度O(1)，不计copy
+
+```java
+class Solution {
+    //0ms, 100%
+    public Node copyRandomList(Node head) {
+        if (head == null) {
+            return null;
+        }
+        Node current;
+        Node temp;
+
+        //make copy as interleaving
+        current = head;
+        while (current != null) {
+            temp = current.next;
+            current.next = new Node();
+            current.next.val = current.val;
+            current.next.next = temp; // may be null
+            current = temp; //current = current.next.next;
+        }
+
+        //handle random for copy nodes
+        current = head;
+        while (current != null) {
+            if (current.random != null) {
+                current.next.random = current.random.next;
+            }
+            current = current.next.next; // current.next should not be null due to step 1.
+        }
+
+        //decouple the copy
+        Node res = head.next;
+        current = head;
+        while ((current.next != null) && (current.next.next != null)) {
+            temp = current.next;
+            current.next = current.next.next;
+            temp.next = temp.next.next;
+            current = current.next;
+        }
+        current.next = null;
+        return res;
+    }
+}
+```
+这个题目对于如何把链表实现的concise（记住实际的状态和情况，忽略一定不会出现的情况）有参考价值，实现不要需要额外多加不少判断条件。
 
 ### Template
 #### []()
@@ -137,7 +197,7 @@ class Solution {
 
 ```java
 class Solution {
-
-
+    
+   
 }
 ```
