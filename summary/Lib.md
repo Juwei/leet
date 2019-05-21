@@ -1,4 +1,5 @@
-#Lib Review
+[TOC]
+# Lib Review
 这里总结一些库函数的简化实现题目，这些题目通常没有算法技巧，有一些工程实现技巧和边界条件。
 
 ### String Related
