@@ -34,7 +34,8 @@ Explanation: The first non-whitespace character is '-', which is the minus sign.
 </code></pre>
 
 >算法：先trim, 再提取正负号，按正负号分别逐位计算，每次都判断是否越界
-注意越界不能超过了才判断，需要用没有超过（i.e., /10）的条件。
+1. 注意越界不能超过了才判断，需要用没有超过（i.e., /10）的条件；
+2. 判断是否已经到最后一位的条件`pos < str.length()`放在最前面，否则后面条件会越界；
 + 时间复杂度O(N)
 + 空间复杂度O(1)
 
